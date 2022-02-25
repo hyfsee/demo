@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    name: test
+    url: jdbc:mysql://localhost:3306/demo #url
+    username: root
+    password: huhuto3344
+    driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis:
+  mapper-locations: classpath:mapper/*.xml  #配置映射文件
+  type-aliases-package: com.huhuto.demo.bean #配置实体类
