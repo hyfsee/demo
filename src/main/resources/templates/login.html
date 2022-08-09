@@ -1,15 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:text="${state==0?'登录失败':'登陆成功'}">登录页</title>
 </head>
-<body>
+<style>
+   .body{
+       background: lightsteelblue;
+   }
+   .formTable{
+
+       width:300px;
+       height:300px;
+       background: azure;
+       border-radius: 10px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       position: absolute;
+       right: 10%;
+       top:35%
+   }
+   input {
+
+       margin: 5px;
+       padding: 7px;
+       border-radius: 20px;
+       border: 1px solid #82bf3f;
+   }
+</style>
+<body class="body" >
+<div class="formTable">
+
 <form role="form" action = "/login" method="post">
-    账号：<input type="text" id="username" name = "username"> <br>
-    密码：<input type="password" id = "password" name = "password"> <br>
+
+    账号：<input type="text" id="username" name = "username" placeholder="请输入用户名"> <br>
+    密码：<input type="password" id = "password" name = "password" placeholder="请输入密码"> <br>
     <input type="submit" id = "login" value = "login">
 </form>
-
+</div>
 </body>
 </html>

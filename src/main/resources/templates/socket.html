@@ -1,0 +1,53 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这个只是测试demo页</title>
+</head>
+<body>
+这里是接受的数据:<div id="demo"></div>
+<input type="text" id="input" placeholder="请输入你要发送的内容"/>
+<button onclick="sendMessage()">发送</button>
+<script>
+
+    var socket;
+
+    if(typeof(WebSocket) == "undefined") {
+        console.log("您的浏览器不支持WebSocket");
+    } else {
+        console.log("您的浏览器支持WebSocket");
+
+        socket = new WebSocket("ws://localhost:8088/websocket/"+window.location.href.split("/")[5]+"");
+        //打开事件
+        socket.onopen = function() {
+            console.log("Socket 已打开");
+
+        };
+        //获得消息事件
+        socket.onmessage = function(msg) {
+            console.log(msg.data);
+          document.getElementById("demo").innerText= msg.data
+        };
+        //关闭事件
+        socket.onclose = function() {
+            console.log("Socket已关闭");
+        };
+        //发生了错误事件
+        socket.onerror = function() {
+            alert("Socket发生了错误");
+            //此时可以尝试刷新页面
+        }
+
+    }
+    function sendMessage() {
+
+
+
+        socket.send(document.getElementById("input").value);
+
+    }
+</script>
+</body>
+</html>

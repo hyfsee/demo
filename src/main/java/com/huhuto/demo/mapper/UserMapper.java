@@ -19,4 +19,6 @@ public interface UserMapper {
 
  boolean updateUser(UserBean userBean);
 
+ boolean updateToken(int id,String token);
+
 }

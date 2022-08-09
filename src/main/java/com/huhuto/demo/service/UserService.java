@@ -15,4 +15,6 @@ public interface UserService {
 
 
     boolean updateUser(UserBean userBean);
+    //更新token
+    boolean updateToken(int id,String token);
 }

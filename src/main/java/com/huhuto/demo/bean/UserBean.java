@@ -17,10 +17,12 @@ public class UserBean implements Serializable {
     private String address;
     private int age;
     private String remark;
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
     private  int statue;
+    private  String token;
+    private String pic;
 
     public int getId() {
         return id;
@@ -60,6 +62,14 @@ public class UserBean implements Serializable {
 
     public void setIphone(String iphone) {
         this.iphone = iphone;
+    }
+
+    public String getRealName() {
+        return realName;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName;
     }
 
     public String getAddress() {
@@ -102,12 +112,20 @@ public class UserBean implements Serializable {
         this.statue = statue;
     }
 
-    public String getRealName() {
-        return realName;
+    public String getToken() {
+        return token;
     }
 
-    public void setRealName(String realName) {
-        this.realName = realName;
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getPic() {
+        return pic;
+    }
+
+    public void setPic(String pic) {
+        this.pic = pic;
     }
 
     @Override
@@ -124,6 +142,8 @@ public class UserBean implements Serializable {
                 ", remark='" + remark + '\'' +
                 ", birthday=" + birthday +
                 ", statue=" + statue +
+                ", token='" + token + '\'' +
+                ", pic='" + pic + '\'' +
                 '}';
     }
 }

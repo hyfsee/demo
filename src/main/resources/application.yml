@@ -1,10 +1,19 @@
+server:
+  port: 8088
 spring:
   datasource:
     name: test
-    url: jdbc:mysql://localhost:3306/demo #url
+    url: jdbc:mysql://localhost:3306/demo?useUnicode=true&useJDBCCompliantTimezoneShift=true&serverTimezone=UTC&characterEncoding=utf8
     username: root
     password: huhuto3344
     driver-class-name: com.mysql.cj.jdbc.Driver
+  mvc:   #静态文件
+     static-path-pattern: /static/**
+  devtools:
+    restart:
+      enabled: true  #设置开启热部署
+    freemarker:
+      cache: false    #页面不加载缓存，修改即时生效
 mybatis:
-  mapper-locations: classpath:mapper/*.xml  #配置映射文件
-  type-aliases-package: com.huhuto.demo.bean #配置实体类
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.huhuto.demo.bean

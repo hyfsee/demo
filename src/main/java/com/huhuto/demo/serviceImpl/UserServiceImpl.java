@@ -40,5 +40,10 @@ public class UserServiceImpl implements UserService {
         return UserMapper.updateUser(userBean);
     }
 
+    @Override
+    public boolean updateToken(int id,String token) {
+        return UserMapper.updateToken(id,token);
+    }
+
 
 }

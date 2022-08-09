@@ -3,43 +3,207 @@
 <meta http-equiv="prama" content="no-cache">
 <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
 <meta  http-equiv="expires" content="0">
+<link th:href="@{/static/css/layui.css}" rel="stylesheet"/>
 <head>
     <meta charset="UTF-8">
-    <title>这是标题</title>
+    <title>首页</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description" content="GOOS,脚手架">
     <meta name="author" content="QQ87766867">
 
 </head>
-<body >
-<div id="logo">
-    <!--治超联网综合信息管理平台-->
-</div>
-<!-- Preloader -->
-<div id="preloader">
-    <!--/*@thymesVar id="user" type=""*/-->
-    <div th:each='user:${user}'>
-        &nbsp;<ol>
-        <li th:text="${user.username}"></li>
-        <li th:text="${user.sex}"></li>
-        <li th:text="${user.age}"></li>
-        <li th:text="${user.iphone}"></li>
-        <li th:text="${user.address}"></li>
-        <li th:text="${user.birthday}"></li>
-        <li th:text="${user.remark}"></li>
-         </ol>
-    </div>
-</div>
-<div class="container">
-    <div class="" id="login-wrapper">
+<style>
+    .title{
+        height: 40px;
+        display: flex;
+        align-items: center;
+        font-family: 楷体;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .header{
+        height: 90px;
+        display: flex;
+        align-items: center;
+        font-family: "Microsoft Sans Serif";
+        font-size: 18px;
+        font-weight:400;
+        padding: 5px 20px;
+    }
+    .list{
+        float: left;
 
-        <div id="copyright" style="color: white; text-align: center;">
-            copyright&copy; 深圳亿维  粤icp15101659号-1     座机号码：0755-26977535
-        </div>
+    }
+    .selected{
+
+     color: red;
+    }
+    a:hover{
+        color: red;
+    }
+    .input{
+        background: #d7d7d7;
+        border: none;
+        padding: 8px;
+        border-radius: 15px;
+        color: #000;
+        font-size: 14px;
+        font-weight: 100;
+    }
+    .menu{
+
+
+        height: 400px;
+        background: #FFF;
+        margin: 10px;
+        border-radius: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .menu ul{
+
+        display: flex;
+        height: 400px;
+        flex-direction: column;
+
+        justify-content: space-around;
+        align-items: center;
+    }
+    .menu ul li:hover{
+        color: red;
+        padding: 10px 30px;
+        border-radius: 18px;
+        background: #fff8e1;
+        cursor: pointer;
+    }
+
+</style>
+<body onload="record()" style="background-color: #f3f5f7;">
+<div class="title"  th:replace="/public/header::header"></div>
+<div class="layui-fluid" style="padding: 0;background: #fffeff;height: 90px">
+    <div class="layui-row" >
+
+        <div class="layui-col-md2" style="color: #FFF">&nbsp;</div>
+        <div class="layui-col-md8 " style="color: #FFF">
+            <ul>
+                <li class="list header"><img width="32px" height="32px" th:src="@{/static/img/favicon.ico}"></li>
+                <li class="list header "><span><a  class="selected">首页</a></span></li>
+                <li class="list header"><span><a>视频教程</a></span></li>
+                <li class="list header"><span><a>学习路径</a></span></li>
+                <li class="list header"><span><a>php培训</a></span></li>
+                <li class="list header"><span><a>资源下载</a></span></li>
+                <li class="list header"><span><a>技术文章</a></span></li>
+                <li class="list header"><span><a>社区</a></span></li>
+                <li class="list header"><span><a>APP下载</a></span></li>
+                <li class="list header"><span><a>...</a></span></li>
+                <li class="list header"><span><input class="input" placeholder="输入关键字搜索"/></span></li>
+            </ul>
+        </div> <div class="layui-col-md2" style="color: #FFF"> </div>
+
     </div>
+
+
+    <div class="layui-row" >
+
+        <div class="layui-col-md2" >&nbsp;</div>
+        <div class="layui-col-md8" >
+            <div class="layui-row" >
+
+                <div class="layui-col-md2" >
+                    <div class="menu">
+                        <ul>
+                            <li >php开发</li>
+                            <li >大前端</li>
+                            <li >后端开发</li>
+                            <li >数据库</li>
+                            <li >移动端</li>
+                            <li >运维开发</li>
+                            <li >UI设计</li>
+                            <li >计算机基础</li>
+                        </ul>
+
+
+                    </div>
+                </div>
+                <div class="layui-col-md8" >
+                    <div class="menu">
+                        <div class="layui-carousel" id="test1">
+                        <div carousel-item>
+                            <div><img th:src="@{/static/img/banner.jpg}"  width="100%" height="100%" style="border-radius: 12px"/></div>
+                            <div><img th:src="@{/static/img/banner2.jpg}" width="100%" height="100%" style="border-radius: 12px" /></div>
+                            <div><img th:src="@{/static/img/bannner3.png}" width="100%" height="100%" style="border-radius: 12px"/></div>
+
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="layui-col-md2">
+                    <div class="menu"  >我是右侧的div</div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="layui-col-md2"> </div>
+
+    </div>
+
+<!-- // 第三层-->
+    <div class="layui-row" >
+
+        <div class="layui-col-md2" >&nbsp;</div>
+        <div class="layui-col-md8" >
+            <div class="layui-row" >
+
+                <div class="layui-col-md10" >
+                   sdad
+                </div>
+                <div class="layui-col-md2">
+                    <div  >我是右侧的div</div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="layui-col-md2"> </div>
+
+    </div>
+
+
 </div>
+
 
 
 </body>
+<script th:src="@{/static/js/layui.js}" type="text/javascript"></script>
+<script  type="text/javascript"  th:inline="javascript">
+
+    var id=[[${id}]];
+
+
+    function record() {
+
+        var token=[[${token}]]+"";
+        localStorage.setItem("id",id)
+        localStorage.setItem("token",token)
+    }
+    layui.use('carousel', function(){
+        var carousel = layui.carousel;
+        //建造实例
+        carousel.render({
+            elem: '#test1'
+            ,width: '100%' //设置容器宽度
+            ,height:"400px"
+            ,arrow: 'none' //始终显示箭头
+            ,atuoplay:true
+            ,indicator:'none'
+            ,anim:'fade'
+        });
+    });
+
+</script>
 </html>

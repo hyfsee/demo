@@ -12,17 +12,19 @@
     </select>
 
     <insert id="addUser" parameterType="com.huhuto.demo.bean.UserBean">
-        insert into user (id,username,password,realName,sex,iphone,birthday,address,age,remark,statue) values (#{id},#{username},#{password},#{realName},#{sex},#{iphone},#{birthday},#{address},#{age},#{remark},0)
+        insert into user (id,username,password,realName,sex,iphone,birthday,address,age,remark,statue,token,pic) values (#{id},#{username},#{password},#{realName},#{sex},#{iphone},#{birthday},#{address},#{age},#{remark},0,#{token},#{pic})
     </insert>
 
     <delete id="deleteUser" parameterType="java.lang.Integer">
         delete from user where id = #{id}
     </delete>
 
-
+<!--     //更新用户-->
     <update id="updateUser" parameterType="com.huhuto.demo.bean.UserBean">
         update user set username=#{username},password=#{password},realName=#{realName},iphone=#{iphone},address=#{address},remark=#{remark} where id=#{id}
     </update>
-
-
+<!--    更新token-->
+    <update id="updateToken" parameterType="com.huhuto.demo.bean.UserBean">
+        update user set token=#{token} where id=#{id}
+    </update>
 </mapper>
