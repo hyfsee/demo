@@ -9,9 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import sun.security.provider.MD5;
 
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 
@@ -30,6 +28,10 @@ public class UserController {
 
         @RequestMapping("/")
         public String sayHello(){
+
+
+
+
 
             return "login";
         }
@@ -50,10 +52,11 @@ public class UserController {
             modelMap.addAttribute("token",token);
             modelMap.addAttribute("state",1);
         }else {
-            modelMap.addAttribute("forward:/");
             modelMap.addAttribute("state",0);
+           return  "login";
+
         }
-        return "/success";
+        return "admin";
     }
     //登录APi
     @RequestMapping(value = "/loginApi",method = RequestMethod.POST)
@@ -145,23 +148,6 @@ public class UserController {
             return AjaxResult.error(400,"修改失败！！！");
         }
     }
-
-
-
-    //响应成功
-
-
-    @RequestMapping("success")
-    public String success() {
-
-        return "success";
-    }
-
-
-
-
-
-
 
 
 }

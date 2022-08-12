@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${state==0?'登录失败':'登陆成功'}">登录页</title>
+    <title th:text="${state==1?'登录成功':'登录失败'}">登录页</title>
 </head>
 <style>
    .body{
