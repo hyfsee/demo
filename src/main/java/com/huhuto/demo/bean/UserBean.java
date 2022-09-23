@@ -18,11 +18,30 @@ public class UserBean implements Serializable {
     private int age;
     private String remark;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
     private Date birthday;
     private  int statue;
     private  String token;
     private String pic;
+    private String roles;
+    private String avatar;
+
+
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
 
     public int getId() {
         return id;
@@ -144,6 +163,8 @@ public class UserBean implements Serializable {
                 ", statue=" + statue +
                 ", token='" + token + '\'' +
                 ", pic='" + pic + '\'' +
+                ", roles='" + roles + '\'' +
+                ", avatar='" + avatar + '\'' +
                 '}';
     }
 }

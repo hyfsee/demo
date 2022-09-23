@@ -21,8 +21,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserBean> allUser() {
-        return  UserMapper.allUser();
+    public List<UserBean> allUser(int page, int limit,String sort,String title) {
+        return  UserMapper.allUser(page,limit,sort,title);
     }
 
     @Override
@@ -41,8 +41,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public boolean updateUserStatue(int id,int statue) {
+        return UserMapper.updateUserStatue(id,statue);
+    }
+
+    @Override
     public boolean updateToken(int id,String token) {
         return UserMapper.updateToken(id,token);
+    }
+
+    @Override
+    public UserBean userById(int id) {
+        return UserMapper.userById(id);
     }
 
 
